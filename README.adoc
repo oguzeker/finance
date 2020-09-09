@@ -1,0 +1,44 @@
+== Finance Demo Application
+
+This is a demo project implemented for `*OpenPayd*` interview rounds of *2020*. This is a just simple foreign exchange application which is one of the most common services used in various financial applications.
+
+== Reference Documentation
+
+Reference documentation can be reached at link:/finance-core/src/doc/asciidoc/index.adoc[Finance Demo - Reference Documentation] page.
+
+== Motivation
+
+This application is implemented to retrieve currency exchange rates, create currency conversions and list currency conversions. `*ratesapi.io*` rate service provider is used for retrieving currency exchange rates.
+
+== Code style
+
+This project uses https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller[`Model-View-Controller`] pattern for the directory structure and resposibility distribution among layers of abstraction.
+
+We deliberately chose not to employ https://en.wikipedia.org/wiki/Entity-control-boundary[`Entity-Control-Boundary`] pattern, since that approach is conventionally better-suited for https://en.wikipedia.org/wiki/Domain-driven_design[`Domain Driven Design`] practices.
+
+image:https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat[js-standard-style]
+
+== Tech/framework used
+
+Project built with the following:
+
+- https://www.oracle.com/java/technologies/javase-jdk11-downloads.html[Java 11]
+- https://spring.io/projects/spring-boot[Spring-boot]
+- https://maven.apache.org/[Maven]
+- https://www.docker.com/[Docker]
+
+Please make sure that you have your local environment set up properly before installation and use.
+
+== Installation
+
+To build and run the application, you need to run the following command at the root directory of the project:
+
+ docker-compose up -d
+
+After that, run the following command to check and see the docker containers running in the background.
+
+  docker ps
+
+== Basic Flow
+
+On startup, the application populates the database with randomly generated dummy data so as to make the demo application easier to test. Still, you can manually perform actions through the `Rest API`. Please refer to the link:/finance-core/src/doc/asciidoc/index.adoc[documentation] for further details.

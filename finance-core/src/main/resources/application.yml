@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: finance-core
+  main:
+    banner-mode: OFF
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+      database: finance
+      username: root
+      password: example
+      authentication-database: admin
+
+server:
+  port: 1905
+
+rates-api:
+  base-url: 'https://api.ratesapi.io'
+  valid-currency-list: GBP,HKD,IDR,ILS,DKK,INR,CHF,MXN,CZK,SGD,THB,HRK,EUR,MYR,NOK,CNY,BGN,PHP,PLN,ZAR,CAD,ISK,BRL,RON,NZD,TRY,JPY,RUB,KRW,USD,AUD,HUF,SEK
+
+eureka:
+  instance:
+    preferIpAddress: false
+  client:
+    healthcheck:
+      enabled: false
+    serviceUrl:
+      defaultZone: http://finance-eureka-discovery:8761/eureka/
+
+logging:
+  level:
+    ROOT: INFO
+    feign:
+      Logger: DEBUG
+  file:
+    max-history: 0
+    max-size: 1GB
+default:
+  locale: en_US
+
+feign:
+  connect:
+    timeout: 1500
+  read:
+    timeout: 1500
+
+connection:
+  timeout: 3000
+  max-connection-count: 20
+  time-to-live: 2
+  max-redirection-count: 10
+
+swagger:
+  api-info:
+    title: OpenPayd Finance Core
+    description: In this web page, you can interact with API resources of Finance Demo.
+    version: 1.0.0-SNAPSHOT
+    terms-of-service-url: 'https://generator.lorem-ipsum.info/terms-and-conditions'
+    contact:
+      name: Oguz Erhan Eker
+      url: 'https://www.linkedin.com/in/oguzerhaneker/'
+      email: 'eker.oguz@gmail.com'
+    license: 'Apache License Version 2.0'
+    license-url: 'https://www.apache.org/licenses/LICENSE-2.0'
+    vendor-extensions:
+      -
+        name: OpenPayd
+        value: Finance Demo Application
+
