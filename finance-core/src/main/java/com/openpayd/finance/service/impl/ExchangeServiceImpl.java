@@ -9,13 +9,13 @@ import com.openpayd.finance.entity.Exchange;
 import com.openpayd.finance.mapper.ExchangeMapper;
 import com.openpayd.finance.mapper.ExchangeRateMapper;
 import com.openpayd.finance.repository.ExchangeRepository;
+import com.openpayd.finance.service.ExchangeRateService;
 import com.openpayd.finance.service.ExchangeService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -32,11 +32,10 @@ import static net.logstash.logback.argument.StructuredArguments.kv;
 @AllArgsConstructor
 public class ExchangeServiceImpl implements ExchangeService {
 
-    private final ExchangeRateServiceImpl service;
+    private final ExchangeRateService service;
     private final ExchangeRepository repository;
     private final ExchangeMapper mapper;
 
-    @Transactional
     public PerformExchangeResponse performExchange(PerformExchangeRequest request) {
         log.info("performExchange-begin {}", kv("request", request));
 

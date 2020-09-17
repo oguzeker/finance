@@ -1,7 +1,7 @@
 package com.openpayd.finance.controller;
 
 import com.openpayd.finance.controller.response.ExchangeRateResponse;
-import com.openpayd.finance.service.impl.ExchangeRateServiceImpl;
+import com.openpayd.finance.service.ExchangeRateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("exchange-rate")
 public class ExchangeRateController {
 
-    private final ExchangeRateServiceImpl service;
+    private final ExchangeRateService service;
 
     @GetMapping
     public ResponseEntity<ExchangeRateResponse> getExchangeRate(@RequestParam Currency base,

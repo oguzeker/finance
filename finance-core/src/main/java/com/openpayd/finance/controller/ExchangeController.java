@@ -3,7 +3,7 @@ package com.openpayd.finance.controller;
 import com.openpayd.finance.controller.request.PerformExchangeRequest;
 import com.openpayd.finance.controller.response.GetExchangeResponse;
 import com.openpayd.finance.controller.response.PerformExchangeResponse;
-import com.openpayd.finance.service.impl.ExchangeServiceImpl;
+import com.openpayd.finance.service.ExchangeService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @RequestMapping("exchange")
 public class ExchangeController {
 
-    private final ExchangeServiceImpl service;
+    private final ExchangeService service;
 
     @PostMapping
     public ResponseEntity<PerformExchangeResponse> performExchange(@RequestBody PerformExchangeRequest request) {
